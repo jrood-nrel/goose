@@ -1,0 +1,5 @@
+packages:
+  all:
+    compiler: [apple-clang]
+    providers:
+      mpi: [mpich]
