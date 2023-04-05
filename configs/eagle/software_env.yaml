@@ -29,8 +29,7 @@ spack:
              set:
                '{name}_ROOT_DIR': '{prefix}'
    definitions:
-   #- compilers: ['%gcc', '%clang']
-   - compilers: ['%clang@15.0.7']
+   - compilers: ['%gcc@10.4.0', '%clang@15.0.7']
    - core:
      - cmake
      - emacs
@@ -38,7 +37,7 @@ spack:
      - ninja
      - screen
      - vim
-     - mpich
+     - mpt
    specs:
    - matrix:
      - [$core]
