@@ -29,16 +29,78 @@ spack:
              set:
                '{name}_ROOT_DIR': '{prefix}'
    definitions:
-   - compilers: ['%gcc@10.4.0', '%clang@15.0.7']
-   - core:
+   - compilers: ['%gcc@10.4.0', '%clang@15.0.7', 'intel-parallel-studio@20.0.4']
+   - apps:
+     - bc
+     - bison
+     - bzip2
      - cmake
+     - cppcheck
+     - curl
+     - flex
+     - flex@2.5.39
+     - ffmpeg
      - emacs
      - git
+     - gdb
+     - gnuplot+wx
+     - gnutls
+     - htop
+     - imagemagick
+     - libxml2
+     - likwid
      - ninja
+     - mercurial
+     - makedepend
+     - patch
+     - pkg-config
+     - python
+     - rsync
      - screen
+     - stow
+     - strace
+     - texinfo
+     - texlive
+     - tmux
+     - unzip
      - vim
+     - wget
+     - zsh
      - mpt
+     - osu-micro-benchmarks
+     - py-numpy
+     - py-matplotlib
+     - py-pandas
+     - py-nose
+     - py-autopep8
+     - py-flake8
+     - py-horovod
+     - py-jedi
+     - py-pip
+     - py-pyyaml
+     - py-seaborn
+     - py-sphinx
+     - py-scipy
+     - py-tensorflow
+     - py-torch
+     - py-yapf
+     - py-yt
+     - percept
+     - ninja
+     - masa
+     - valgrind
+     - ascent
+     - nccmp
+     - netcdf-fortran
+     - sundials
+     - paraview
+     - scotch
+     - parmetis
+     - amrvis dims=3
+     - amrvis dims=2
+     #- global
+     #- xterm
    specs:
    - matrix:
-     - [$core]
+     - [$apps]
      - [$compilers]
