@@ -6,18 +6,13 @@ spack:
    - config.yaml
    - $GOOSE_ROOT/configs/$NREL_CLUSTER/packages.yaml
    - $GOOSE_ROOT/configs/$NREL_CLUSTER/modules.yaml
+   - $GOOSE_ROOT/configs/$NREL_CLUSTER/config.yaml
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/concretizer.yaml
    - $GOOSE_ROOT/configs/base/repos.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    view: false
    packages:
-     binutils:
-       require: "+ld+gold"
-     perl:
-       require: "@5.30.3"
-     gcc:
-       require: "~bootstrap ~profiled +strip"
      all:
        require: "build_type=Release %gcc"
    modules:

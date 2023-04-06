@@ -1,8 +1,16 @@
 packages:
+  emacs:
+    require: "+tls+native+treesitter+json"
+  perl:
+    require: "@5.30.3"
+  texlive:
+    require: "scheme=full"
+  binutils:
+    require: "+ld+gold"
+  gcc:
+    require: "@8.5.0 ~bootstrap ~profiled +strip"
   llvm:
     require: "+omp_debug+omp_tsan+python build_type=Release"
-  perl:
-    require: "@5.32.0"
   slurm:
     buildable: false
     require: "@21.08.8"
@@ -39,5 +47,6 @@ packages:
         - mpt/2.22
         - slurm
   all:
+    require: "build_type=Release"
     compiler: [clang@15.0.7, intel@20.0.4]
     variants: cuda_arch=70
