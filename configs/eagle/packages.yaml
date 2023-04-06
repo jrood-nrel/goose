@@ -8,7 +8,7 @@ packages:
   binutils:
     require: "+ld+gold"
   gcc:
-    require: "~bootstrap+strip"
+    variants: ~bootstrap~profiled+strip
   llvm:
     require: "+omp_debug+omp_tsan+python build_type=Release"
   slurm:
