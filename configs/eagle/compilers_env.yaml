@@ -32,7 +32,11 @@ spack:
            environment:
              set:
                INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
-         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils']
+         intel-oneapi-compilers:
+           environment:
+             set:
+               INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
+         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'intel-oneapi-compilers', 'binutils']
          exclude: ['%gcc']
    specs:
    - binutils
