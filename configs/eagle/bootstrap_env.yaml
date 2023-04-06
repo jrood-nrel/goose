@@ -28,5 +28,5 @@ spack:
          exclude: ['%gcc']
    specs:
    - binutils
-   - gcc
+   - gcc@8.5.0
    - environment-modules
