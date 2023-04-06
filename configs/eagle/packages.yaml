@@ -8,7 +8,7 @@ packages:
   binutils:
     require: "+ld+gold"
   gcc:
-    require: "~bootstrap ~profiled +strip"
+    require: "~bootstrap~profiled+strip"
   llvm:
     require: "+omp_debug+omp_tsan+python build_type=Release"
   slurm:
@@ -26,9 +26,9 @@ packages:
     - spec: cuda@11.2.2
       prefix: /nopt/nrel/ecom/hpacf/compilers/2020-07/spack/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/cuda-11.2.2-5muy3vijyqputqmbdyzhltqot3fvwibu
   openmpi:
-    require: "+pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt"
+    require: "+pmi+cuda~vt fabrics=verbs schedulers=slurm legacylaunchers=true"
   mpich:
-    require: "netmod=ucx device=ch4 +slurm +hydra"
+    require: "+slurm+hydra netmod=ucx device=ch4"
   fftw:
     require: "+mpi+fma simd=avx512"
   libfabric:
@@ -47,5 +47,5 @@ packages:
         - mpt/2.22
         - slurm
   all:
-    compiler: [gcc@10.4.0, intel@20.0.4]
+    compiler: [gcc, intel]
     variants: build_type=Release cuda_arch=70
