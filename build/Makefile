@@ -1,7 +1,10 @@
 DATE := 2023-03
 
+INSTALLDIR = /no/where
+
 ifeq ($(NREL_CLUSTER),eagle)
-  INSTALLDIR = /nopt/nrel/ecom/hpacf/$(DATE)
+  #INSTALLDIR = /nopt/nrel/ecom/hpacf/$(DATE)
+  INSTALLDIR = /scratch/jrood/nrel/ecom/hpacf/$(DATE)
 endif
 
 ifeq ($(NREL_CLUSTER),rhodes)
@@ -9,8 +12,6 @@ ifeq ($(NREL_CLUSTER),rhodes)
 endif
 
 export GOOSE_ROOT=$(abspath $(lastword $(CURDIR)/..))
-export SPACK_ROOT=$(GOOSE_ROOT)/spack
-source $(SPACK_ROOT)/share/spack/setup-env.sh
 export SPACK_USER_CONFIG_PATH=$(CURDIR)/.spack
 export SPACK_USER_CACHE_PATH=$(CURDIR)/.spack
 unexport SPACK_DISABLE_LOCAL_CONFIG
