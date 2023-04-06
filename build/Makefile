@@ -11,7 +11,6 @@ ifeq ($(NREL_CLUSTER),rhodes)
   INSTALLDIR = /opt/software/$(DATE)
 endif
 
-export GOOSE_ROOT=$(abspath $(lastword $(CURDIR)/..))
 export SPACK_USER_CONFIG_PATH=$(CURDIR)/.spack
 export SPACK_USER_CACHE_PATH=$(CURDIR)/.spack
 unexport SPACK_DISABLE_LOCAL_CONFIG
