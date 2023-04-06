@@ -1,19 +1,19 @@
 packages:
   emacs:
-    require: "+tls+native+treesitter+json"
+    require: ["+tls+native+treesitter+json"]
   perl:
-    require: "@5.30.3"
+    require: ["@5.30.3"]
   texlive:
-    require: "scheme=full"
+    require: ["scheme=full"]
   binutils:
-    require: "+ld+gold"
+    require: ["+ld+gold"]
   gcc:
-    require: "~bootstrap+strip"
+    require: ["~bootstrap+strip"]
   llvm:
-    require: "+omp_debug+omp_tsan+python build_type=Release"
+    require: ["+omp_debug+omp_tsan+python build_type=Release"]
   slurm:
     buildable: false
-    require: "@21.08.8"
+    require: ["@21.08.8"]
     externals:
     - spec: slurm@21.08.8
       prefix: /nopt/slurm/current
@@ -28,19 +28,19 @@ packages:
   #  - spec: cuda@11.2.2
   #    prefix: /nopt/nrel/ecom/hpacf/compilers/2020-07/spack/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/cuda-11.2.2-5muy3vijyqputqmbdyzhltqot3fvwibu
   openmpi:
-    require: "+pmi+cuda~vt fabrics=verbs schedulers=slurm legacylaunchers=true"
+    require: ["+pmi+cuda~vt fabrics=verbs schedulers=slurm legacylaunchers=true"]
   mpich:
-    require: "+slurm+hydra netmod=ucx device=ch4"
+    require: ["+slurm+hydra netmod=ucx device=ch4"]
   fftw:
-    require: "+mpi+fma simd=avx512"
+    require: ["+mpi+fma simd=avx512"]
   libfabric:
-    require: "fabrics=verbs"
+    require: ["fabrics=verbs"]
   ucx:
-    require: "+optimizations+gdrcopy"
+    require: ["+optimizations+gdrcopy"]
   mpi:
-    require: "mpt"
+    require: ["mpt"]
   mpt:
-    require: "@2.22"
+    require: ["@2.22"]
     buildable: false
     externals:
     - spec: mpt@2.22
@@ -49,5 +49,5 @@ packages:
         - mpt/2.22
         - slurm
   all:
+    require: ["build_type=Release cuda_arch=70"]
     compiler: [gcc, intel]
-    variants: build_type=Release cuda_arch=70
