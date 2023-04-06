@@ -26,7 +26,7 @@ spack:
                '{name}_ROOT_DIR': '{prefix}'
          exclude: ['gcc', 'llvm']
    definitions:
-   - compilers: ['%clang@15.0.7', 'intel-parallel-studio@20.0.4']
+   - compilers: ['%gcc@10.4.0', 'intel-parallel-studio@20.0.4']
    - apps:
      - bc
      - bison
