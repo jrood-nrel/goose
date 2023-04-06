@@ -24,7 +24,7 @@ spack:
            environment:
              set:
                '{name}_ROOT_DIR': '{prefix}'
-         exclude: ['gcc', 'llvm']
+         exclude: ['gcc', 'llvm', 'binutils', 'cuda']
    definitions:
    - compilers: ['%gcc@10.4.0', 'intel@20.0.4']
    - apps:
