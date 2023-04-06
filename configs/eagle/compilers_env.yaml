@@ -12,10 +12,14 @@ spack:
    - $GOOSE_ROOT/configs/base/config.yaml
    view: false
    packages:
+     binutils:
+       require: "+ld+gold"
      perl:
        require: "@5.30.3"
+     gcc:
+       require: "~bootstrap ~profiled +strip"
      all:
-       variants: [build_type=Release]
+       require: "build_type=Release %gcc"
    modules:
      default:
        tcl:
@@ -32,11 +36,10 @@ spack:
            environment:
              set:
                INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
-         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils', 'pgi']
+         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils']
          exclude: ['%gcc']
    specs:
-   - binutils+gold
-   - cuda@12.0.0
+   - binutils
    - cuda@11.8.0
    - cuda@11.7.1
    - cuda@11.6.2
@@ -49,13 +52,12 @@ spack:
    - gcc@10.4.0
    - gcc@9.5.0
    - gcc@8.5.0
-   - gcc@7.5.0
    - go@1.20.2
-   - llvm@16.0.0 +omp_debug+omp_tsan+python build_type=Release
-   - llvm@15.0.7 +omp_debug+omp_tsan+python build_type=Release
-   - llvm@14.0.6 +omp_debug+omp_tsan+python build_type=Release
-   - llvm@13.0.1 +omp_debug+omp_tsan+python build_type=Release
-   - llvm@12.0.1 +omp_debug+omp_tsan+python build_type=Release
+   - llvm@15.0.7
+   - llvm@14.0.6
+   - llvm@13.0.1
+   - llvm@12.0.1
+   - intel-oneapi-compilers@2023.1
    - intel-parallel-studio@cluster.2020.4
    - intel-parallel-studio@cluster.2019.5
    - intel-parallel-studio@cluster.2018.4
