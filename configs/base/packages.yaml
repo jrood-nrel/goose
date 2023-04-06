@@ -1,8 +1,9 @@
 packages:
   perl:
     require: "@5.34.1"
+  blas:
+    require: "openblas"
+  lapack:
+    require: "openblas"
   all:
-    variants: build_type=Release
-    providers:
-      blas: [openblas]
-      lapack: [openblas]
+    require: "build_type=Release"
