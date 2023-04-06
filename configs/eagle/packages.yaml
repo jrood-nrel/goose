@@ -20,11 +20,13 @@ packages:
       modules:
         - slurm
   cuda:
-    buildable: false
-    require: "@11.2.2"
-    externals:
-    - spec: cuda@11.2.2
-      prefix: /nopt/nrel/ecom/hpacf/compilers/2020-07/spack/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/cuda-11.2.2-5muy3vijyqputqmbdyzhltqot3fvwibu
+    version: [11.2.2]
+  #cuda:
+  #  buildable: false
+  #  require: "@11.2.2"
+  #  externals:
+  #  - spec: cuda@11.2.2
+  #    prefix: /nopt/nrel/ecom/hpacf/compilers/2020-07/spack/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/cuda-11.2.2-5muy3vijyqputqmbdyzhltqot3fvwibu
   openmpi:
     require: "+pmi+cuda~vt fabrics=verbs schedulers=slurm legacylaunchers=true"
   mpich:
