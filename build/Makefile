@@ -86,8 +86,8 @@ software/spack.yaml:
 	cp $(GOOSE_ROOT)/configs/$(NREL_CLUSTER)/software_env.yaml software/spack.yaml
 
 software/compilers.yaml: compilers/generated/modules
-	# selectively pull gcc and llvm to avoid system gcc
-	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' gcc llvm)
+	# selectively pull compilers to avoid system gcc
+	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' gcc llvm intel-parallel-studio)
 
 software/config.yaml:
 	SPACK_USER_CONFIG_PATH=software spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/software
@@ -98,7 +98,7 @@ software/packages.yaml:
 	#SPACK_USER_CONFIG_PATH=software spack external find --scope=user $(external_packages)
 
 software/spack.lock: software/spack.yaml software/config.yaml software/packages.yaml software/compilers.yaml
-	SPACK_USER_CONFIG_PATH=software spack python $(GOOSE_ROOT)/utilities/mixed_compiler_creator.py software/compilers.yaml
+	#SPACK_USER_CONFIG_PATH=software spack python $(GOOSE_ROOT)/utilities/mixed_compiler_creator.py software/compilers.yaml
 	SPACK_USER_CONFIG_PATH=software spack -e software concretize --force
 
 software/spack.mk: software/spack.lock
@@ -113,17 +113,17 @@ include bootstrap/spack.mk
 
 ifneq (,$(wildcard bootstrap/spack.mk))
 #Try to get binutils into PATH
-#export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
-#export SHELL := env PATH=$(PATH) /bin/bash
-#$(info    PATH is $(PATH))
+export SHELL := /bin/bash
+export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
+$(info    PATH is $(PATH))
 include compilers/spack.mk
 endif
 
 ifneq (,$(wildcard compilers/spack.mk))
 #Try to get binutils into PATH
-#export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
-#export SHELL := env PATH=$(PATH) /bin/bash
-#$(info    PATH is $(PATH))
+export SHELL := /bin/bash
+export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
+$(info    PATH is $(PATH))
 include software/spack.mk
 endif
 
