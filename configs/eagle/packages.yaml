@@ -47,6 +47,5 @@ packages:
         - mpt/2.22
         - slurm
   all:
-    require: "build_type=Release"
-    compiler: [clang@15.0.7, intel@20.0.4]
-    variants: cuda_arch=70
+    compiler: [gcc@10.4.0, intel@20.0.4]
+    variants: build_type=Release cuda_arch=70

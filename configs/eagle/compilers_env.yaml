@@ -14,7 +14,8 @@ spack:
    view: false
    packages:
      all:
-       require: "build_type=Release %gcc"
+       require: "%gcc"
+       variants: [build_type=Release]
    modules:
      default:
        tcl:

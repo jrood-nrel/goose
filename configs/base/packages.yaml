@@ -6,4 +6,4 @@ packages:
   lapack:
     require: "openblas"
   all:
-    require: "build_type=Release"
+    variants: [build_type=Release]
