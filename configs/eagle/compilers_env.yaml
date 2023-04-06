@@ -14,7 +14,7 @@ spack:
    view: false
    packages:
      all:
-       require: ["%gcc"]
+       require: "%gcc"
        variants: build_type=Release
    modules:
      default:
