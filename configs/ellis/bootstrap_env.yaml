@@ -28,5 +28,5 @@ spack:
            environment:
              set:
                '{name}_ROOT_DIR': '{prefix}'
-         include: ['gcc']
+         include: ['gcc', 'screen', 'binutils']
          exclude: ['%gcc']
