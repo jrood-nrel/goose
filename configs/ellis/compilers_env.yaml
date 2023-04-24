@@ -30,7 +30,6 @@ spack:
    - llvm@15.0.7
    - llvm@14.0.6
    - llvm@13.0.1
-   - llvm@12.0.1
    view: false
    modules:
      default:
