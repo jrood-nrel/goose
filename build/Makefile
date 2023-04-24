@@ -11,6 +11,10 @@ ifeq ($(NREL_CLUSTER),rhodes)
   INSTALLDIR = /opt/software/$(DATE)
 endif
 
+ifeq ($(NREL_CLUSTER),ellis)
+  INSTALLDIR = /data/ssd1/software/$(DATE)
+endif
+
 export SPACK_USER_CONFIG_PATH=$(CURDIR)/.spack
 export SPACK_USER_CACHE_PATH=$(CURDIR)/.spack
 unexport SPACK_DISABLE_LOCAL_CONFIG

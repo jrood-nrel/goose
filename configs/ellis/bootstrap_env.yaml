@@ -1,0 +1,32 @@
+spack:
+   include:
+   - packages.yaml
+   - compilers.yaml
+   - modules.yaml
+   - config.yaml
+   - $GOOSE_ROOT/configs/$NREL_CLUSTER/packages.yaml
+   - $GOOSE_ROOT/configs/$NREL_CLUSTER/config.yaml
+   - $GOOSE_ROOT/configs/base/packages.yaml
+   - $GOOSE_ROOT/configs/base/concretizer.yaml
+   - $GOOSE_ROOT/configs/base/repos.yaml
+   - $GOOSE_ROOT/configs/base/config.yaml
+   specs:
+   - binutils+gold
+   - gcc@8.5.0
+   - environment-modules
+   - screen
+   view: false
+   modules:
+     default:
+       tcl:
+         projections:
+           all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
+         hash_length: 0
+         all:
+           conflict:
+             - '{name}'
+           environment:
+             set:
+               '{name}_ROOT_DIR': '{prefix}'
+         include: ['gcc']
+         exclude: ['%gcc']
