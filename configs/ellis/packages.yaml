@@ -9,6 +9,10 @@ packages:
     variants: +cuda+cudnn+nccl
   emacs:
     variants: +tls
+  gdb:
+    variants: ~debuginfod
+  swig:
+    require: "@4.0.2"
   perl:
     require: "@5.30.3"
   llvm:
