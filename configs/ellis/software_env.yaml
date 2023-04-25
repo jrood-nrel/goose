@@ -102,3 +102,4 @@ spack:
            environment:
              set:
                '{name}_ROOT_DIR': '{prefix}'
+         exclude: ['gcc', 'cuda', 'llvm', 'binutils']
