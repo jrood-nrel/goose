@@ -51,3 +51,7 @@ spack:
                INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
          include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils', 'pgi']
          exclude: ['%gcc']
+         defaults:
+           - gcc@10.4.0
+           - cuda@11.4.4
+           - llvm@16.0.2
