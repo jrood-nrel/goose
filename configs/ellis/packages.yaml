@@ -25,11 +25,13 @@ packages:
     variants: +python+huge+cscope
   py-yt:
     variants: ~astropy
+  mpi:
+    require: "mpich"
+  blas:
+    require: "netlib-lapack"
+  lapack:
+    require: "netlib-lapack"
   all:
     compiler: [gcc@10.4.0, clang@16.0.2]
     variants: build_type=Release +mpi cuda_arch=80
     target: [zen2]
-    providers:
-      mpi: [mpich]
-      blas: [netlib-lapack]
-      lapack: [netlib-lapack]
