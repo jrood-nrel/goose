@@ -116,17 +116,17 @@ include bootstrap/spack.mk
 
 ifneq (,$(wildcard bootstrap/spack.mk))
 #Try to get binutils into PATH
-#export SHELL := /bin/bash
-#export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
-#$(info    PATH is $(PATH))
+export SHELL := /bin/bash
+export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
+$(info    PATH is $(PATH))
 include compilers/spack.mk
 endif
 
 ifneq (,$(wildcard compilers/spack.mk))
 #Try to get binutils into PATH
-#export SHELL := /bin/bash
-#export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
-#$(info    PATH is $(PATH))
+export SHELL := /bin/bash
+export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
+$(info    PATH is $(PATH))
 include software/spack.mk
 endif
 
