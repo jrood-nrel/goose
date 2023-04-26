@@ -93,6 +93,8 @@ spack:
    modules:
      default:
        tcl:
+         all:
+           autoload: none
          projections:
            all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
          hash_length: 0
