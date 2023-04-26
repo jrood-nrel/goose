@@ -7,4 +7,4 @@ if [ "${NREL_CLUSTER}" == 'eagle' ] || [ "${NREL_CLUSTER}" == 'rhodes' ]; then
   mkdir -p ${SPACK_ROOT}/etc/spack/licenses/intel
   cp ${HOME}/save/intel/license.lic ${SPACK_ROOT}/etc/spack/licenses/intel/
 fi
-nice make -j4
+nice make -j
