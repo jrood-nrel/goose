@@ -1,10 +1,25 @@
 spack:
+   view: false
+   modules:
+     default:
+       tcl:
+         intel-parallel-studio:
+           environment:
+             set:
+               INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
+         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils', 'pgi']
+         exclude: ['%gcc']
+         defaults:
+           - gcc@10.4.0
+           - cuda@11.4.4
+           - llvm@16.0.2
    include:
    - packages.yaml
    - compilers.yaml
    - modules.yaml
    - config.yaml
    - $GOOSE_ROOT/configs/$NREL_CLUSTER/packages.yaml
+   - $GOOSE_ROOT/configs/$NREL_CLUSTER/modules.yaml
    - $GOOSE_ROOT/configs/$NREL_CLUSTER/config.yaml
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/concretizer.yaml
@@ -30,28 +45,3 @@ spack:
    - llvm@15.0.7
    - llvm@14.0.6
    - llvm@13.0.1
-   view: false
-   modules:
-     default:
-       tcl:
-         all:
-           autoload: none
-         projections:
-           all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
-         hash_length: 0
-         all:
-           conflict:
-             - '{name}'
-           environment:
-             set:
-               '{name}_ROOT_DIR': '{prefix}'
-         intel-parallel-studio:
-           environment:
-             set:
-               INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
-         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils', 'pgi']
-         exclude: ['%gcc']
-         defaults:
-           - gcc@10.4.0
-           - cuda@11.4.4
-           - llvm@16.0.2
