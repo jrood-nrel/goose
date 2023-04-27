@@ -8,9 +8,7 @@ packages:
   py-torch:
     variants: +cuda+cudnn+nccl
   emacs:
-    variants: +tls
-  gdb:
-    variants: ~debuginfod
+    require: "+tls+native+treesitter+json"
   swig:
     require: "@4.0.2"
   perl:
@@ -18,7 +16,7 @@ packages:
   mpich:
     require: "@4.1.1"
   llvm:
-    variants: +omp_debug+omp_tsan+python build_type=Release
+    require: "+omp_debug+omp_tsan+python build_type=Release"
   texlive:
     variants: scheme=full
   vim:

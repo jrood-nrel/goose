@@ -1,4 +1,9 @@
 spack:
+   view: false
+   modules:
+     default:
+       tcl:
+         exclude: ['gcc', 'llvm', 'binutils', 'cuda', 'intel-paralle-studio']
    include:
    - packages.yaml
    - compilers.yaml
@@ -11,20 +16,6 @@ spack:
    - $GOOSE_ROOT/configs/base/concretizer.yaml
    - $GOOSE_ROOT/configs/base/repos.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
-   view: false
-   modules:
-     default:
-       tcl:
-         projections:
-           all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
-         hash_length: 0
-         all:
-           conflict:
-             - '{name}'
-           environment:
-             set:
-               '{name}_ROOT_DIR': '{prefix}'
-         exclude: ['gcc', 'llvm', 'binutils', 'cuda']
    definitions:
    - compilers: ['%gcc@10.4.0', 'intel@20.0.4']
    - apps:
