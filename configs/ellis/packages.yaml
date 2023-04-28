@@ -1,12 +1,12 @@
 packages:
   gcc:
-    variants: [~bootstrap ~profiled +strip]
+    require: "~bootstrap~profiled+strip"
   py-horovod:
     variants: tensor_ops=mpi frameworks=pytorch,tensorflow
   py-tensorflow:
-    variants: +cuda+mpi+nccl
+    require: "+cuda+mpi+nccl"
   py-torch:
-    variants: +cuda+cudnn+nccl
+    require: "+cuda+cudnn+nccl"
   emacs:
     require: "+tls+native+treesitter+json"
   swig:
@@ -18,11 +18,11 @@ packages:
   llvm:
     require: "+clang+flang+omp_debug+omp_tsan+python build_type=Release"
   texlive:
-    variants: scheme=full
+    require: "scheme=full"
   vim:
-    variants: +python+huge+cscope
+    require: "+python+huge+cscope"
   py-yt:
-    variants: ~astropy
+    require: "~astropy"
   mpi:
     require: "mpich"
   blas:
@@ -31,5 +31,5 @@ packages:
     require: "netlib-lapack"
   all:
     compiler: [gcc@10.4.0, clang@16.0.2]
-    variants: build_type=Release +mpi cuda_arch=80
+    variants: +mpi build_type=Release cuda_arch=80
     target: [zen2]
