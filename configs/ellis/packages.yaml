@@ -16,7 +16,7 @@ packages:
   mpich:
     require: "@4.1.1"
   llvm:
-    require: "+omp_debug+omp_tsan+python build_type=Release"
+    require: "+clang+flang+omp_debug+omp_tsan+python build_type=Release"
   texlive:
     variants: scheme=full
   vim:
