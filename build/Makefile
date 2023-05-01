@@ -109,6 +109,7 @@ software/spack.mk: software/spack.lock
 
 software/generated/modules: software/generated/env
 	SPACK_USER_CONFIG_PATH=software spack -e software module tcl refresh -y
+	chmod -R a+rX,go-w $(INSTALLDIR)
 	touch software/generated/modules
 
 ifeq (,$(filter clean,$(MAKECMDGOALS)))
