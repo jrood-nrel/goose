@@ -16,6 +16,7 @@ spack:
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/concretizer.yaml
    - $GOOSE_ROOT/configs/base/repos.yaml
+   - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:
    - binutils

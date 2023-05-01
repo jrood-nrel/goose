@@ -1,2 +1,0 @@
-bootstrap:
-  root: $spack/var/spack/bootstrap
