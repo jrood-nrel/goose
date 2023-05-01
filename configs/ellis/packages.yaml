@@ -1,14 +1,8 @@
 packages:
   gcc:
-    require: "~bootstrap~profiled+strip"
-  py-horovod:
-    variants: tensor_ops=mpi frameworks=pytorch,tensorflow
-  py-tensorflow:
-    require: "+cuda+mpi+nccl"
-  py-torch:
-    require: "+cuda+cudnn+nccl"
+    require: "~bootstrap+strip"
   emacs:
-    require: "+tls+native+treesitter+json"
+    require: "+tls+json"
   swig:
     require: "@4.0.2"
   perl:
@@ -20,9 +14,7 @@ packages:
   texlive:
     require: "scheme=full"
   vim:
-    require: "+python+huge+cscope"
-  py-yt:
-    require: "~astropy"
+    require: "+python+cscope features=huge"
   mpi:
     require: "mpich"
   blas:
