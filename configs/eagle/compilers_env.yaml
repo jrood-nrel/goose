@@ -1,9 +1,5 @@
 spack:
    view: false
-   packages:
-     all:
-       require: "%gcc"
-       variants: build_type=Release
    modules:
      default:
        tcl:
@@ -28,10 +24,11 @@ spack:
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/concretizer.yaml
    - $GOOSE_ROOT/configs/base/repos.yaml
+   - $GOOSE_ROOT/configs/base/modules.yaml
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:
-   - binutils
+   - binutils+gold
    #- cuda@11.8.0
    #- cuda@11.7.1
    #- cuda@11.6.2
@@ -50,7 +47,6 @@ spack:
    #- llvm@15.0.7
    #- llvm@14.0.6
    #- llvm@13.0.1
-   #- llvm@12.0.1
    - intel-parallel-studio@cluster.2020.4
    #- intel-parallel-studio@cluster.2019.5
    #- intel-parallel-studio@cluster.2018.4

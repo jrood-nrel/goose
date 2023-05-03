@@ -3,7 +3,7 @@ spack:
    modules:
      default:
        tcl:
-         include: ['gcc']
+         include: ['gcc', 'screen', 'binutils']
          exclude: ['%gcc']
    include:
    - packages.yaml
@@ -16,9 +16,11 @@ spack:
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/concretizer.yaml
    - $GOOSE_ROOT/configs/base/repos.yaml
+   - $GOOSE_ROOT/configs/base/modules.yaml
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:
-   - binutils
-   - gcc@8.5.0
+   - binutils+gold
+   - gcc@10.4.0
    - environment-modules
+   - screen

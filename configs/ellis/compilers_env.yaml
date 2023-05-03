@@ -7,7 +7,7 @@ spack:
            environment:
              set:
                INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
-         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils', 'pgi']
+         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils']
          exclude: ['%gcc']
          #defaults:
          #  - gcc@10.4.0
@@ -24,6 +24,7 @@ spack:
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/concretizer.yaml
    - $GOOSE_ROOT/configs/base/repos.yaml
+   - $GOOSE_ROOT/configs/base/modules.yaml
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:

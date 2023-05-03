@@ -1,15 +1,6 @@
 modules:
   default:
     tcl:
-      hash_length: 0
-      projections:
-        all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
-      all:
-        conflict:
-          - '{name}'
-        environment:
-          set:
-            '{name}_ROOT_DIR': '{prefix}'
       mpt:
         environment:
           set:

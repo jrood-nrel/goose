@@ -1,9 +1,15 @@
 spack:
    view: false
+   #view:
+   #  default:
+   #    root: $env/view
+   #    projections:
+   #      all: '{compiler.name}/{compiler.version}/{name}/{version}/{hash:8}'
+   #    link_type: symlink
    modules:
      default:
        tcl:
-         exclude: ['gcc', 'llvm', 'binutils', 'cuda', 'intel-paralle-studio']
+         exclude: ['gcc', 'cuda', 'llvm', 'binutils', 'intel-parallel-studio']
    include:
    - packages.yaml
    - compilers.yaml
@@ -15,10 +21,12 @@ spack:
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/concretizer.yaml
    - $GOOSE_ROOT/configs/base/repos.yaml
+   - $GOOSE_ROOT/configs/base/modules.yaml
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    definitions:
-   - compilers: ['%gcc@10.4.0', 'intel@20.0.4']
+   #- compilers: ['%gcc@10.4.0', 'intel@20.0.4']
+   - compilers: ['%gcc@10.4.0']
    - apps:
      - bc
      - bison
