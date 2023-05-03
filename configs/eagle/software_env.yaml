@@ -33,6 +33,7 @@ spack:
      - bzip2
      - cmake
      - cppcheck
+     - ccls
      - curl
      - flex
      - flex@2.5.39
