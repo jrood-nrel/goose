@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+module purge
 export GOOSE_ROOT=$(readlink -f ../)
 export SPACK_ROOT=$(readlink -f ../spack)
 source ${SPACK_ROOT}/share/spack/setup-env.sh
