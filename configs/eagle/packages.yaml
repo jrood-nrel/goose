@@ -5,8 +5,6 @@ packages:
     require: "@4.0.2"
   perl:
     require: "@5.30.3"
-  texlive:
-    require: "scheme=full"
   binutils:
     require: "+ld+gold"
   llvm:
