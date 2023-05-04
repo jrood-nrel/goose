@@ -1,5 +1,6 @@
 modules:
   default:
+    enable: [tcl]
     tcl:
       hash_length: 0
       projections:
