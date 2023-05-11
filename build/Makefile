@@ -1,4 +1,4 @@
-DATE := 2023-05
+DATE := 2023-05-11
 
 INSTALLDIR = /no/where
 
