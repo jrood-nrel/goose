@@ -1,4 +1,9 @@
 modules:
+  prefix_inspections:
+    ./lib64: 
+      - LD_LIBRARY_PATH
+    ./lib: 
+      - LD_LIBRARY_PATH
   default:
     enable: [tcl]
     tcl:
@@ -11,7 +16,3 @@ modules:
         environment:
           set:
             '{name}_ROOT_DIR': '{prefix}'
-     prefix_inspections:
-       lib64: [LD_LIBRARY_PATH]
-     prefix_inspections:
-       lib: [LD_LIBRARY_PATH]
