@@ -1,3 +1,4 @@
+from spack.package import *
 from spack.pkg.builtin.intel_parallel_studio import IntelParallelStudio as bIntelParallelStudio
 
 class IntelParallelStudio(bIntelParallelStudio):

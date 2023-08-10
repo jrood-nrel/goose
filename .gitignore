@@ -1,0 +1,5 @@
+__pycache__
+build/bootstrap
+build/compilers
+build/software
+build/.spack

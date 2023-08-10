@@ -2,22 +2,22 @@ packages:
   emacs:
     require: "+tls+json"
   swig:
-    require: "@4.0.2"
+    require: "@=4.0.2"
   perl:
-    require: "@5.30.3"
+    require: "@=5.30.3"
   binutils:
     require: "+ld+gold"
   llvm:
-    require: "+clang+flang+omp_debug+omp_tsan+python build_type=Release"
+    require: "+clang+flang+python build_type=Release"
   texlive:
     require: "scheme=full"
   vim:
     require: "+python+cscope features=huge"
   slurm:
     buildable: false
-    require: "@21.08.8"
+    require: "@=21.08.8"
     externals:
-    - spec: slurm@21.08.8
+    - spec: slurm@=21.08.8
       prefix: /nopt/slurm/current
       modules:
         - slurm
@@ -25,19 +25,19 @@ packages:
     version: [11.2.2]
   #cuda:
   #  buildable: false
-  #  require: "@11.2.2"
+  #  require: "@=11.2.2"
   #  externals:
-  #  - spec: cuda@11.2.2
+  #  - spec: cuda@=11.2.2
   #    prefix: /nopt/nrel/ecom/hpacf/compilers/2020-07/spack/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/cuda-11.2.2-5muy3vijyqputqmbdyzhltqot3fvwibu
   fftw:
     require: "+mpi+fma simd=avx512"
   mpi:
     require: "mpt"
   mpt:
-    require: "@2.22"
+    require: "@=2.22"
     buildable: false
     externals:
-    - spec: mpt@2.22
+    - spec: mpt@=2.22
       prefix: /opt/hpe/hpc/mpt/mpt-2.22
       modules:
         - mpt/2.22
@@ -48,4 +48,4 @@ packages:
     require: "netlib-lapack"
   all:
     variants: build_type=Release cuda_arch=70
-    compiler: [gcc, intel]
+    compiler: [gcc, oneapi]

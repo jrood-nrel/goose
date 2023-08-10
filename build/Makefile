@@ -1,4 +1,4 @@
-DATE := 2023-05-11
+DATE := 2023-08-10
 
 INSTALLDIR = /no/where
 
@@ -90,7 +90,7 @@ software/spack.yaml:
 
 software/compilers.yaml: compilers/generated/modules
 	# selectively pull compilers to avoid system gcc
-	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' gcc llvm intel-parallel-studio)
+	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' oneapi)
 
 software/config.yaml:
 	SPACK_USER_CONFIG_PATH=software spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/software
