@@ -1,6 +1,6 @@
-DATE := 2023-08-10
-
+DATE = 2023-08-10
 INSTALLDIR = /no/where
+COMPILERS = llvm gcc
 
 ifeq ($(NREL_CLUSTER),eagle)
   #INSTALLDIR = /nopt/nrel/ecom/hpacf/$(DATE)
@@ -64,6 +64,7 @@ compilers/spack.yaml:
 
 compilers/compilers.yaml: bootstrap/generated/modules
 	SPACK_USER_CONFIG_PATH=compilers spack compiler find --scope=user $$(spack -e bootstrap find --format '{prefix}' gcc)
+	BINUTILS_PATH=$(shell spack -e bootstrap find --format "{prefix}" binutils)/bin; perl -pi -e '$_ .= qq(      environment:\n        prepend_path:\n          PATH:$(BINUTILS_PATH)\n) if /compiler:/' compilers/compilers.yaml
 
 compilers/config.yaml: 
 	SPACK_USER_CONFIG_PATH=compilers spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/compilers
@@ -90,7 +91,9 @@ software/spack.yaml:
 
 software/compilers.yaml: compilers/generated/modules
 	# selectively pull compilers to avoid system gcc
-	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' oneapi)
+	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
+	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux
+	BINUTILS_PATH=$(shell spack -e bootstrap find --format "{prefix}" binutils)/bin; perl -pi -e '$_ .= qq(      environment:\n        prepend_path:\n          PATH:$(BINUTILS_PATH)\n) if /compiler:/' software/compilers.yaml
 
 software/config.yaml:
 	SPACK_USER_CONFIG_PATH=software spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/software
@@ -116,18 +119,10 @@ ifeq (,$(filter clean,$(MAKECMDGOALS)))
 include bootstrap/spack.mk
 
 ifneq (,$(wildcard bootstrap/spack.mk))
-#Try to get binutils into PATH
-export SHELL := /bin/bash
-export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
-$(info    PATH is $(PATH))
 include compilers/spack.mk
 endif
 
 ifneq (,$(wildcard compilers/spack.mk))
-#Try to get binutils into PATH
-export SHELL := /bin/bash
-export PATH := $(shell spack -e bootstrap find --format "{prefix}" binutils)/bin:$(PATH)
-$(info    PATH is $(PATH))
 include software/spack.mk
 endif
 
