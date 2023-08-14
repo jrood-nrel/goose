@@ -64,7 +64,7 @@ compilers/spack.yaml:
 
 compilers/compilers.yaml: bootstrap/generated/modules
 	SPACK_USER_CONFIG_PATH=compilers spack compiler find --scope=user $$(spack -e bootstrap find --format '{prefix}' gcc)
-	export BINUTILS_PATH=$$(spack -e bootstrap find --format '{prefix}' binutils)/bin; sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $$BINUTILS_PATH|g" compilers/compilers.yaml
+	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin; sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" compilers/compilers.yaml
 
 compilers/config.yaml: 
 	SPACK_USER_CONFIG_PATH=compilers spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/compilers
@@ -93,7 +93,7 @@ software/compilers.yaml: compilers/generated/modules
 	# selectively pull compilers to avoid system gcc
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux
-	export BINUTILS_PATH=$$(spack -e bootstrap find --format '{prefix}' binutils)/bin; sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $$BINUTILS_PATH|g" software/compilers.yaml
+	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=compilers spack -e bootstrap location -i --first binutils)/bin; sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" software/compilers.yaml
 
 software/config.yaml:
 	SPACK_USER_CONFIG_PATH=software spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/software
