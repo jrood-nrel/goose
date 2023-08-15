@@ -94,7 +94,11 @@ software/compilers.yaml: compilers/generated/modules
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin/intel64
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin
-	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=compilers spack -e compilers find --format '{prefix}' binutils)/bin; sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" software/compilers.yaml
+	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=compilers spack -e compilers find --format '{prefix}' binutils)/bin; \
+	export GCC_LIBPATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' gcc)/lib64; \
+	sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" software/compilers.yaml; \
+	sed -i -e '/oneapi@=/,/- compiler:/!b' -e "s|extra_rpaths: \[\]|extra_rpaths:\n       - $${GCC_LIBPATH}|" software/compilers.yaml; \
+	sed -i -e '/dpcpp@=/,/- compiler:/!b' -e "s|extra_rpaths: \[\]|extra_rpaths:\n       - $${GCC_LIBPATH}|" software/compilers.yaml
 
 software/config.yaml:
 	SPACK_USER_CONFIG_PATH=software spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/software
