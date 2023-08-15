@@ -28,7 +28,7 @@ spack:
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:
-   - binutils+gold
+   - binutils
    #- cuda@=11.8.0
    #- cuda@=11.7.1
    #- cuda@=11.6.2

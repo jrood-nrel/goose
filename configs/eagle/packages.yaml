@@ -6,7 +6,7 @@ packages:
   perl:
     require: "@=5.30.3"
   binutils:
-    require: "+ld+gold"
+    require: "+ld+gas+gold"
   llvm:
     require: "+clang+flang+python build_type=Release"
   texlive:

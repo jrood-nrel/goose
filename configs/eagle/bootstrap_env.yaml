@@ -20,7 +20,7 @@ spack:
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:
-   - binutils+gold
+   - binutils
    - gcc@=10.4.0
    - environment-modules
    - screen
