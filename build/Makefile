@@ -92,7 +92,8 @@ software/spack.yaml:
 software/compilers.yaml: compilers/generated/modules
 	# selectively pull compilers to avoid system gcc
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
-	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux
+	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin/intel64
+	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin
 	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=compilers spack -e compilers location -i --first binutils)/bin; sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" software/compilers.yaml
 
 software/config.yaml:
