@@ -25,8 +25,7 @@ spack:
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    definitions:
-   #- compilers: ['%gcc', '%clang']
-   - compilers: ['%gcc@10.4.0']
+   - compilers: ['%gcc@12.3.0', '%clang@17.0.6']
    - core:
      - bc
      - bison
@@ -47,7 +46,7 @@ spack:
      - libxml2
      - likwid
      - ninja
-       #- mercurial
+     - mercurial
      - makedepend
      - patch
      - pkg-config
@@ -57,14 +56,14 @@ spack:
      - stow
      - strace
      - texinfo
-       #- texlive
+     - texlive
      - tmux
      - unzip
      - vim
      - wget
      - zsh
-     #- global
-     #- xterm
+     - global
+     - xterm
      - py-numpy
      - py-matplotlib
      - py-pandas
@@ -78,21 +77,21 @@ spack:
      - py-sphinx
      - py-scipy
      - py-yapf
-       #- py-yt
+     - py-yt
      - masa~python
      - valgrind~mpi
      - ascent
      - nccmp
      - netcdf-fortran
-     #- amrvis dims=3
-     #- amrvis+profiling dims=2
+     - amrvis dims=3
+     - amrvis+profiling dims=2
      - mpich
      - hdf5
      - parallel-netcdf
      - netcdf-c
      - boost
      - hypre
-       #- h5z-zfp
+     - h5z-zfp
      - yaml-cpp
    specs:
    - matrix:

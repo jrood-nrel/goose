@@ -2,13 +2,7 @@ packages:
   gcc:
     require: "~bootstrap+strip"
   emacs:
-    require: "+tls+json"
-  swig:
-    require: "@4.0.2"
-  perl:
-    require: "@5.30.3"
-  mpich:
-    require: "@4.1.1"
+    require: "+tls+native+treesitter+jso"
   llvm:
     require: "+clang+flang+omp_debug+omp_tsan+python build_type=Release"
   texlive:
@@ -17,11 +11,7 @@ packages:
     require: "+python+cscope features=huge"
   mpi:
     require: "mpich"
-  blas:
-    require: "netlib-lapack"
-  lapack:
-    require: "netlib-lapack"
   all:
-    compiler: [gcc@10.4.0, clang@16.0.2]
+    compiler: [gcc@12.3.0, clang@17.0.6]
     variants: +mpi build_type=Release cuda_arch=80
     target: [zen2]
