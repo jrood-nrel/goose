@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 set -e
 module purge || true
 export GOOSE_ROOT=$(readlink -f ../)

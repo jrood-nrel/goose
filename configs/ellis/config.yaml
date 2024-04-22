@@ -1,5 +1,3 @@
 config:
-  source_cache:
-    $spack/var/spack/downloads
   build_stage:
     $spack/var/spack/stage
