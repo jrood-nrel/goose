@@ -7,10 +7,6 @@ ifeq ($(NREL_CLUSTER),eagle)
   INSTALLDIR = /scratch/jrood/nrel/ecom/hpacf/$(DATE)
 endif
 
-ifeq ($(NREL_CLUSTER),rhodes)
-  INSTALLDIR = /opt/software/$(DATE)
-endif
-
 ifeq ($(NREL_CLUSTER),ellis)
   INSTALLDIR = /data/ssd1/software/$(DATE)
 endif
