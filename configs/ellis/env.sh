@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export NREL_CLUSTER=ellis
-#export HOME=/data/ssd1/home/${USER}
 export TMPDIR=/data/ssd1/home/${USER}/.tmp
 mkdir -p ${TMPDIR}
 umask u=rwx,go=rx,o=rx

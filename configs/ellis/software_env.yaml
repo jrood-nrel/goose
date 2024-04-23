@@ -27,6 +27,7 @@ spack:
    definitions:
    - compilers: ['%gcc@12.3.0', '%clang@17.0.6']
    - core:
+     - aspell
      - bc
      - bison
      - bzip2
