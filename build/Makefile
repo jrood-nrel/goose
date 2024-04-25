@@ -60,7 +60,8 @@ compilers/spack.yaml:
 
 compilers/compilers.yaml: bootstrap/generated/modules
 	SPACK_USER_CONFIG_PATH=compilers spack compiler find --scope=user $$(spack -e bootstrap find --format '{prefix}' gcc)
-	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' binutils)/bin; sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" compilers/compilers.yaml
+	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin; \
+	sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" compilers/compilers.yaml
 
 compilers/config.yaml: 
 	SPACK_USER_CONFIG_PATH=compilers spack config --scope=user add config:install_tree:root:$(INSTALLDIR)/opt/compilers
@@ -90,7 +91,6 @@ software/compilers.yaml: compilers/generated/modules
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin/intel64
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin
-	#export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' binutils)/bin;
 	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin; \
 	export GCC_BINPATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' gcc)/bin; \
 	export GCC_LIBPATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' gcc)/lib64; \
@@ -110,8 +110,7 @@ software/packages.yaml:
 
 software/spack.lock: software/spack.yaml software/config.yaml software/packages.yaml software/compilers.yaml
 	SPACK_USER_CONFIG_PATH=software spack python $(GOOSE_ROOT)/utilities/mixed_compiler_creator.py software/compilers.yaml
-	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=compilers spack -e compilers find --format '{prefix}' binutils)/bin
-	export PATH=$(BINUTILS_PATH):$(PATH)
+	export PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin:$${PATH}; \
 	SPACK_USER_CONFIG_PATH=software spack -e software concretize --force
 
 software/spack.mk: software/spack.lock
