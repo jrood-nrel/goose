@@ -2,7 +2,7 @@ packages:
   gcc:
     require: "~bootstrap+strip"
   emacs:
-    require: "+tls+native+treesitter+jso"
+    require: "+tls+native+treesitter+json"
   llvm:
     require: "+clang+flang+python"
   texlive:

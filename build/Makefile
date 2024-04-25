@@ -109,7 +109,9 @@ software/packages.yaml:
 	#SPACK_USER_CONFIG_PATH=software spack external find --scope=user $(external_packages)
 
 software/spack.lock: software/spack.yaml software/config.yaml software/packages.yaml software/compilers.yaml
-	#SPACK_USER_CONFIG_PATH=software spack python $(GOOSE_ROOT)/utilities/mixed_compiler_creator.py software/compilers.yaml
+	SPACK_USER_CONFIG_PATH=software spack python $(GOOSE_ROOT)/utilities/mixed_compiler_creator.py software/compilers.yaml
+	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=compilers spack -e compilers find --format '{prefix}' binutils)/bin
+	export PATH=$(BINUTILS_PATH):$(PATH)
 	SPACK_USER_CONFIG_PATH=software spack -e software concretize --force
 
 software/spack.mk: software/spack.lock
