@@ -4,6 +4,7 @@ packages:
   emacs:
     require: "+tls+native+treesitter+json"
   llvm:
+    version: [17.0.6]
     require: "+clang+flang+python"
   texlive:
     require: "scheme=full"

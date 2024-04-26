@@ -1,4 +1,6 @@
 packages:
+  hdf5:
+    require: "+hl+cxx"
   blas:
     require: "openblas"
   lapack:

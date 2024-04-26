@@ -31,7 +31,7 @@ spack:
      - bc
      - bison
      - bzip2
-     - ccls
+     - ccls ^llvm@=15.0.7
      - cmake
      - cppcheck
      - curl
