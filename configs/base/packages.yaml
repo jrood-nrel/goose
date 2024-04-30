@@ -1,9 +1,20 @@
 packages:
-  hdf5:
-    require: "+hl+cxx"
   blas:
     require: "openblas"
+  emacs:
+    require: "+tls+native+treesitter+json"
+  gcc:
+    require: "~bootstrap+strip languages=c,c++,fortran,jit"
+  hdf5:
+    require: "+hl+cxx"
   lapack:
     require: "openblas"
+  llvm:
+    version: [17.0.6]
+    require: "+clang+flang+python"
+  texlive:
+    require: "scheme=full"
+  vim:
+    require: "+python+cscope features=huge"
   all:
     variants: build_type=Release
