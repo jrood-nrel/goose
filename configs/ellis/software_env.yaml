@@ -25,13 +25,13 @@ spack:
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    definitions:
-   - compilers: ["%gcc@=12.3.0"]
+   - compilers: ["%gcc@=13.2.0"]
    - core:
      - aspell
      - bc
      - bison
      - bzip2
-     - ccls ^llvm@=15.0.7
+     - ccls
      - cmake
      - cppcheck
      - curl
