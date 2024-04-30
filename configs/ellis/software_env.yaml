@@ -25,7 +25,7 @@ spack:
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    definitions:
-   - compilers: ["%gcc@=13.2.0"]
+   - compilers: ["%gcc@=12.3.0"]
    - core:
      - aspell
      - bc
@@ -37,7 +37,7 @@ spack:
      - curl
      - flex
      - ffmpeg
-     - emacs ^gcc@13.2.0
+     - emacs ^gcc@12.3.0
      - git
      - gdb
      - gnuplot

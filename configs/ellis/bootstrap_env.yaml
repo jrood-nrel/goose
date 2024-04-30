@@ -21,6 +21,6 @@ spack:
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:
    - binutils+gold
-   - gcc@12.3.0
+   - gcc@11.4.0
    - environment-modules
    - screen
