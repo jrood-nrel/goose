@@ -13,4 +13,4 @@ module() { eval $(${MODULE_PREFIX}/bin/modulecmd $(basename ${SHELL}) $*); }
 module purge
 module unuse ${MODULEPATH}
 module use /data/ssd1/software/${MODULES_DATE}/modules/compilers/linux-rocky8-zen2/gcc-12.3.0
-module use /data/ssd1/software/${MODULES_DATE}/modules/software/linux-rocky8-zen2/gcc-13.2.0
+module use /data/ssd1/software/${MODULES_DATE}/modules/software/linux-rocky8-zen2/gcc-12.3.0
