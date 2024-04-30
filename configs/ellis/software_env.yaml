@@ -43,10 +43,12 @@ spack:
      - gnuplot
      - gnutls
      - htop
+     - hunspell
      - imagemagick
      - libxml2
      - likwid
      - ninja
+     - npm
      - mercurial
      - makedepend
      - patch
