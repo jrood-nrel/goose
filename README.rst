@@ -6,7 +6,8 @@ This project seeks to generate software environments in scientific computing wit
 Use
 ~~~
 
-cd build && DATE=$(date +"%Y-%m") make -j8
+Edit DATE in `build/Makefile`
+cd build && ./build.sh
 
 Acknowledgement
 ~~~~~~~~~~~~~~~
