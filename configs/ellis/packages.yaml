@@ -1,4 +1,8 @@
 packages:
+  paraview:
+    require: "+osmesa+hdf5+visitbridge+mpi"
+  visit:
+    require: "~gui+osmesa"
   mpi:
     require: "mpich"
   all:

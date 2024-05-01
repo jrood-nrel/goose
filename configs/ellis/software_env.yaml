@@ -91,6 +91,8 @@ spack:
      - mpich
      - hdf5
      - parallel-netcdf
+     - paraview
+     - visit
      - netcdf-c
      - boost
      - hypre
