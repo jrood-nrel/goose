@@ -7,6 +7,7 @@ Use
 ~~~
 
 Edit DATE in `build/Makefile`
+
 cd build && ./build.sh
 
 Acknowledgement
