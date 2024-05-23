@@ -37,6 +37,7 @@ spack:
      - curl
      - flex
      - ffmpeg
+     - fftw
      - emacs ^gcc@12.3.0
      - git
      - gdb
