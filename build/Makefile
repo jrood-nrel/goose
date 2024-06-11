@@ -1,4 +1,4 @@
-DATE = 2024-05-01
+DATE = 2024-06-10
 INSTALLDIR = /no/where
 COMPILERS = llvm gcc
 
