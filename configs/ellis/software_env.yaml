@@ -82,6 +82,8 @@ spack:
      - py-scipy
      - py-yapf
      - py-yt
+     - py-torch
+     - py-tensorflow
      - masa~python
      - valgrind~mpi
      - ascent
