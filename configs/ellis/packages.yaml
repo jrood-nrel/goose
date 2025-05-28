@@ -9,6 +9,8 @@ packages:
     require: "~gui+osmesa"
   mpi:
     require: "mpich"
+  cuda:
+    require: "@=12.5.1"
   all:
     compiler: [gcc@=12.3.0, clang@=17.0.6]
     variants: build_type=Release cuda_arch=80

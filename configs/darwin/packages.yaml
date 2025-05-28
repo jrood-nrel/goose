@@ -1,5 +1,13 @@
 packages:
-  all:
-    compiler: [apple-clang]
-    providers:
-      mpi: [mpich]
+  mpi:
+    require: "mpich"
+  blas:
+    require: "openblas"
+  lapack:
+    require: "openblas"
+  c:
+    require: "apple-clang"
+  cxx:
+    require: "apple-clang"
+  fortran:
+    require: "gcc"

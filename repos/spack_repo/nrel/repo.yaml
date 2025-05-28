@@ -1,2 +1,3 @@
 repo:
   namespace: 'nrel'
+  api: v2.0

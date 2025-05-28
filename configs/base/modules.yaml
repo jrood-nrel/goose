@@ -9,7 +9,7 @@ modules:
     tcl:
       hash_length: 0
       projections:
-        all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
+        all: '{name}/{version}/{hash:4}'
       all:
         autoload: none
         conflict:
