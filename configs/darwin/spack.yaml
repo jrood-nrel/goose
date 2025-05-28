@@ -1,11 +1,11 @@
 spack:
    view: false
    include:
-   - $GOOSE_ROOT/configs/darwin/packages.yaml
-   - $GOOSE_ROOT/configs/darwin/modules.yaml
-   - $GOOSE_ROOT/configs/base/packages.yaml
-   - $GOOSE_ROOT/configs/base/modules.yaml
-   - $GOOSE_ROOT/configs/base/config.yaml
+   - ${GOOSE_ROOT}/configs/darwin/packages.yaml
+   - ${GOOSE_ROOT}/configs/darwin/modules.yaml
+   - ${GOOSE_ROOT}/configs/base/packages.yaml
+   - ${GOOSE_ROOT}/configs/base/modules.yaml
+   - ${GOOSE_ROOT}/configs/base/config.yaml
    definitions:
    - compilers: ["%apple-clang"]
    - core:
