@@ -3,7 +3,6 @@ spack:
    include:
    - $GOOSE_ROOT/configs/darwin/packages.yaml
    - $GOOSE_ROOT/configs/darwin/modules.yaml
-   - $GOOSE_ROOT/configs/darwin/config.yaml
    - $GOOSE_ROOT/configs/base/packages.yaml
    - $GOOSE_ROOT/configs/base/modules.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
