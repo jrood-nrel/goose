@@ -1,3 +1,0 @@
-config:
-  source_cache: ~/.spack_downloads
-  build_stage: $spack/var/spack/stage
