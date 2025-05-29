@@ -1,4 +1,16 @@
 packages:
+  emacs:
+    require: "+tls+native+treesitter+json"
+  gcc:
+    require: "~bootstrap+strip languages=c,c++,fortran,jit"
+  hdf5:
+    require: "+hl+cxx"
+  llvm:
+    require: "+clang+flang+python"
+  texlive:
+    require: "scheme=full"
+  vim:
+    require: "+python+cscope features=huge"
   mpi:
     require: "mpich"
   blas:
