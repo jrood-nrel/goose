@@ -30,7 +30,7 @@ spack:
     lapack:
       require: "openblas"
     all:
-      compiler: [gcc@=12.4.0, clang@=20.1.6]
+      compiler: [gcc@=12.5.0, clang@=20.1.6]
       variants: build_type=Release cuda_arch=80
       target: [zen2]
   modules:
@@ -60,7 +60,7 @@ spack:
    install_tree:
      root: $spack/../install/$date/opt
    definitions:
-   - compilers: ["%gcc@=12.4.0"]
+   - compilers: ["%gcc@=12.5.0"]
    - core:
      - binutils+gold
      - cuda@=12.9.0
@@ -78,15 +78,16 @@ spack:
      - cuda@=11.4.4
      - gcc@=15.1.0
      - gcc@=14.3.0
-     - gcc@=13.3.0
-     - gcc@=12.4.0
+     - gcc@=13.4.0
+     - gcc@=12.5.0
      - gcc@=11.5.0
      - gcc@=10.5.0
      - gcc@=9.5.0
      - gcc@=8.5.0
      - go@=1.24.3
-     - llvm@=20.1.5
+     - llvm@=20.1.6
      - llvm@=19.1.7
+     - llvm@=18.1.8
      - llvm@=17.0.6
      - llvm@=16.0.6
      - llvm@=15.0.7
