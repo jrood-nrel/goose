@@ -1,3 +1,0 @@
-config:
-  source_cache: /data/ssd1/home/$user/.spack_downloads
-  build_stage: $spack/var/spack/stage
