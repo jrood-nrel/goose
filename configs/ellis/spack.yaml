@@ -1,37 +1,22 @@
 spack:
   view: false
+  concretizer:
+    unify: false
+    reuse: false
+  config:
+    source_cache: /mnt/vdb/home/$user/.spack_downloads
+    build_stage: $spack/var/spack/stage
+    install_tree:
+      root: $spack/../install/$date/opt
   packages:
-    paraview:
-      require: "+osmesa+hdf5+visitbridge+mpi"
-    py-torch:
-      require: "+cuda+cudnn+magma+nccl"
-    py-tensorflow:
-      require: "+cuda+nccl"
-    visit:
-      require: "~gui+osmesa"
     mpi:
       require: "mpich"
-    cuda:
-      require: "@=12.5.1"
-    emacs:
-      require: "+tls+native+treesitter+json"
-    gcc:
-      require: "~bootstrap+strip languages=c,c++,fortran,jit"
-    hdf5:
-      require: "+hl+cxx"
-    llvm:
-      require: "+clang+flang+python"
-    texlive:
-      require: "scheme=full"
-    vim:
-      require: "+python+cscope features=huge"
     blas:
       require: "openblas"
     lapack:
       require: "openblas"
     all:
-      compiler: [gcc@=12.5.0, clang@=20.1.6]
-      variants: build_type=Release cuda_arch=80
+      variants: build_type=Release cuda_arch=80 %gcc@=12.5.0
       target: [zen2]
   modules:
     prefix_inspections:
@@ -54,121 +39,116 @@ spack:
           environment:
             set:
               '{name}_ROOT_DIR': '{prefix}'
-  config:
-   source_cache: /mnt/vdb/home/$user/.spack_downloads
-   build_stage: $spack/var/spack/stage
-   install_tree:
-     root: $spack/../install/$date/opt
-   definitions:
-   - compilers: ["%gcc@=12.5.0"]
-   - core:
-     - binutils+gold
-     - cuda@=12.9.0
-     - cuda@=12.8.1
-     - cuda@=12.6.3
-     - cuda@=12.5.1
-     - cuda@=12.4.1
-     - cuda@=12.3.2
-     - cuda@=12.2.2
-     - cuda@=12.1.1
-     - cuda@=11.8.0
-     - cuda@=11.7.1
-     - cuda@=11.6.2
-     - cuda@=11.5.2
-     - cuda@=11.4.4
-     - gcc@=15.1.0
-     - gcc@=14.3.0
-     - gcc@=13.4.0
-     - gcc@=12.5.0
-     - gcc@=11.5.0
-     - gcc@=10.5.0
-     - gcc@=9.5.0
-     - gcc@=8.5.0
-     - go@=1.24.3
-     - llvm@=20.1.6
-     - llvm@=19.1.7
-     - llvm@=18.1.8
-     - llvm@=17.0.6
-     - llvm@=16.0.6
-     - llvm@=15.0.7
-     - llvm@=14.0.6
-     - environment-modules
-     - screen
-     - aspell
-     - bc
-     - bison
-     - bzip2
-     - ccls
-     - cmake
-     - cppcheck
-     - curl
-     - flex
-     - ffmpeg
-     - fftw
-     - emacs
-     - git
-     - gdb
-     - gnuplot
-     - gnutls
-     - htop
-     - hunspell
-     - imagemagick
-     - libxml2
-     - likwid
-     - ninja
-     - npm
-     - mercurial
-     - makedepend
-     - patch
-     - pkg-config
-     - python
-     - rsync
-     - screen
-     - stow
-     - strace
-     - texinfo
-     - texlive
-     - tmux
-     - unzip
-     - vim
-     - wget
-     - zsh
-     - global
-     - xterm
-     - py-numpy
-     - py-matplotlib
-     - py-pandas
-     - py-nose
-     - py-autopep8
-     - py-flake8
-     - py-jedi
-     - py-pip
-     - py-pyyaml
-     - py-seaborn
-     - py-sphinx
-     - py-scipy
-     - py-yapf
-     - py-yt
-     - py-torch
-     - py-tensorflow
-     - masa~python
-     - valgrind~mpi
-     - ascent
-     - nccmp
-     - netcdf-fortran
-     - amrvis dims=3
-     - amrvis+profiling dims=2
-     - mpich
-     - hdf5
-     - parallel-netcdf
-     - paraview
-     - visit
-     - netcdf-c
-     - boost
-     - hypre
-     - h5z-zfp
-     - yaml-cpp
-   specs:
-   - matrix:
-     - [$core]
-     - [$compilers]
+  definitions:
+    - compilers: ["%gcc@=12.5.0"]
+    - core:
+      - binutils+gold
+      - gcc@=15.1.0~bootstrap+strip languages=c,c++,fortran,jit
+      - gcc@=14.3.0~bootstrap+strip languages=c,c++,fortran,jit
+      - gcc@=13.4.0~bootstrap+strip languages=c,c++,fortran,jit
+      - gcc@=12.5.0~bootstrap+strip languages=c,c++,fortran,jit
+      - gcc@=11.5.0~bootstrap+strip languages=c,c++,fortran,jit
+      - gcc@=10.5.0~bootstrap+strip languages=c,c++,fortran,jit
+      - gcc@=9.5.0~bootstrap+strip languages=c,c++,fortran,jit
+      - gcc@=8.5.0~bootstrap+strip languages=c,c++,fortran,jit
+      - go@=1.24.3
+      - llvm@=20.1.6+clang+flang+python
+      - llvm@=19.1.7+clang+flang+python
+      - llvm@=18.1.8+clang+flang+python
+      - llvm@=17.0.6+clang+flang+python
+      - llvm@=16.0.6+clang+flang+python
+      - llvm@=15.0.7+clang+flang+python
+      - llvm@=14.0.6+clang+flang+python
+      - environment-modules
+      - screen
+      - aspell
+      - bc
+      - bison
+      - bzip2
+      - ccls
+      - cmake
+      - cppcheck
+      - curl
+      - flex
+      - ffmpeg
+      - fftw
+      - emacs+tls+native+treesitter+json
+      - git
+      - gdb
+      - gnuplot
+      - gnutls
+      - htop
+      - hunspell
+      - imagemagick
+      - libxml2
+      - likwid
+      - ninja
+      - npm
+      - mercurial
+      - makedepend
+      - patch
+      - pkg-config
+      - python
+      - rsync
+      - screen
+      - stow
+      - strace
+      - texinfo
+      - texlive
+      - tmux
+      - unzip
+      - vim+python+cscope features=huge
+      - wget
+      - zsh
+      - global
+      - xterm
+      - py-numpy
+      - py-matplotlib
+      - py-pandas
+      - py-nose
+      - py-autopep8
+      - py-flake8
+      - py-jedi
+      - py-pip
+      - py-pyyaml
+      - py-seaborn
+      - py-sphinx
+      - py-scipy
+      - py-yapf
+      - py-yt
+      - py-torch+cuda+cudnn+magma+nccl
+      - py-tensorflow+cuda+nccl
+      - masa~python
+      - valgrind~mpi
+      - ascent
+      - nccmp
+      - netcdf-fortran
+      - amrvis dims=3
+      - amrvis+profiling dims=2
+      - mpich
+      - hdf5+hl+cxx
+      - parallel-netcdf
+      - paraview+hdf5+visitbridge+mpi
+      - visit~gui
+      - netcdf-c
+      - boost
+      - hypre
+      - h5z-zfp
+      - yaml-cpp
+  specs:
+    - cuda@=12.9.0
+    - cuda@=12.8.1
+    - cuda@=12.6.3
+    - cuda@=12.5.1
+    - cuda@=12.4.1
+    - cuda@=12.3.2
+    - cuda@=12.2.2
+    - cuda@=12.1.1
+    - cuda@=11.8.0
+    - cuda@=11.7.1
+    - cuda@=11.6.2
+    - cuda@=11.5.2
+    - cuda@=11.4.4
+    - matrix:
+      - [$core]
+      - [$compilers]
