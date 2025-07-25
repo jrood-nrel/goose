@@ -1,8 +1,8 @@
 spack:
   view: false
   concretizer:
-    unify: false
-    reuse: false
+    unify: true
+    reuse: true
   config:
     source_cache: /mnt/vdb/home/$user/.spack_downloads
     build_stage: $spack/var/spack/stage
@@ -16,9 +16,9 @@ spack:
     lapack:
       require: "openblas"
     all:
-      prefer:
-        - "%c,cxx,fortran=gcc@12.5.0"
+      require:
         - "build_type=Release"
+        - "%[when=%c]c=gcc@12.5.0 %[when=%cxx]cxx=gcc@12.5.0 %[when=%fortran]fortran=gcc@12.5.0"
       variants: cuda_arch=80
       target: [zen2]
   modules:
@@ -44,10 +44,11 @@ spack:
               '{name}_ROOT_DIR': '{prefix}'
   specs:
     - binutils+gold
+    - gcc@=12.5.0+binutils~bootstrap+strip languages=c,c++,fortran,jit %gcc@=8.5.0
     - gcc@=15.1.0+binutils~bootstrap+strip languages=c,c++,fortran,jit
     - gcc@=14.3.0+binutils~bootstrap+strip languages=c,c++,fortran,jit
     - gcc@=13.4.0+binutils~bootstrap+strip languages=c,c++,fortran,jit
-    - gcc@=12.5.0+binutils~bootstrap+strip languages=c,c++,fortran,jit %gcc@=8.5.0
+    - gcc@=12.5.0+binutils~bootstrap+strip languages=c,c++,fortran,jit
     - gcc@=11.5.0+binutils~bootstrap+strip languages=c,c++,fortran,jit
     - gcc@=10.5.0+binutils~bootstrap+strip languages=c,c++,fortran,jit
     - gcc@=9.5.0+binutils~bootstrap+strip languages=c,c++,fortran,jit
