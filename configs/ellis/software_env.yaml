@@ -4,6 +4,13 @@ spack:
      default:
        tcl:
          exclude: ['gcc', 'cuda', 'llvm', 'binutils']
+   packages:
+     c:
+       - require: "gcc@=12.5.0"
+     cxx:
+       - require: "gcc@=12.5.0"
+     fortran:
+       - require: "gcc@=12.5.0"
    include:
     - packages.yaml
     - modules.yaml
@@ -17,12 +24,6 @@ spack:
     - $GOOSE_ROOT/configs/base/modules.yaml
     - $GOOSE_ROOT/configs/base/bootstrap.yaml
     - $GOOSE_ROOT/configs/base/config.yaml
-   definitions:
-   - compilers: ["%gcc@=12.5.0"]
-   - core:
-     - cmake
-     - yaml-cpp
    specs:
-   - matrix:
-     - [$core]
-     - [$compilers]
+    - cmake
+    - yaml-cpp
