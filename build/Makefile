@@ -21,6 +21,7 @@ clean:
 	rm -rf compilers/
 	rm -rf software/
 	rm -rf .spack/
+	rm -rf .cache/
 
 # Bootstrap
 bootstrap/spack.yaml:
@@ -33,8 +34,6 @@ bootstrap/config.yaml:
 
 bootstrap/packages.yaml:
 	SPACK_USER_CONFIG_PATH=bootstrap spack compiler find --scope=user
-	touch bootstrap/packages.yaml
-	#SPACK_USER_CONFIG_PATH=bootstrap spack external find --scope=user $(external_packages)
 
 bootstrap/spack.lock: bootstrap/spack.yaml bootstrap/config.yaml bootstrap/packages.yaml
 	SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap concretize --force

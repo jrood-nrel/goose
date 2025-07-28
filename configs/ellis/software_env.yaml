@@ -5,18 +5,18 @@ spack:
        tcl:
          exclude: ['gcc', 'cuda', 'llvm', 'binutils']
    include:
-   - packages.yaml
-   - modules.yaml
-   - config.yaml
-   - $GOOSE_ROOT/configs/$NREL_CLUSTER/packages.yaml
-   - $GOOSE_ROOT/configs/$NREL_CLUSTER/modules.yaml
-   - $GOOSE_ROOT/configs/$NREL_CLUSTER/config.yaml
-   - $GOOSE_ROOT/configs/base/packages.yaml
-   - $GOOSE_ROOT/configs/base/concretizer.yaml
-   - $GOOSE_ROOT/configs/base/repos.yaml
-   - $GOOSE_ROOT/configs/base/modules.yaml
-   - $GOOSE_ROOT/configs/base/bootstrap.yaml
-   - $GOOSE_ROOT/configs/base/config.yaml
+    - packages.yaml
+    - modules.yaml
+    - config.yaml
+    - $GOOSE_ROOT/configs/$NREL_CLUSTER/packages.yaml
+    - $GOOSE_ROOT/configs/$NREL_CLUSTER/modules.yaml
+    - $GOOSE_ROOT/configs/$NREL_CLUSTER/config.yaml
+    - $GOOSE_ROOT/configs/base/packages.yaml
+    - $GOOSE_ROOT/configs/base/concretizer.yaml
+    - $GOOSE_ROOT/configs/base/repos.yaml
+    - $GOOSE_ROOT/configs/base/modules.yaml
+    - $GOOSE_ROOT/configs/base/bootstrap.yaml
+    - $GOOSE_ROOT/configs/base/config.yaml
    definitions:
    - compilers: ["%gcc@=12.5.0"]
    - core:

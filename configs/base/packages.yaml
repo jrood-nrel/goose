@@ -10,10 +10,7 @@ packages:
   lapack:
     require: "openblas"
   llvm:
-    version: [17.0.6]
     require: "+clang+flang+python"
-  texlive:
-    require: "scheme=full"
   vim:
     require: "+python+cscope features=huge"
   all:
