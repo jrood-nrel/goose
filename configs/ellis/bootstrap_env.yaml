@@ -7,7 +7,6 @@ spack:
          exclude: ['%gcc']
    include:
    - packages.yaml
-   - compilers.yaml
    - modules.yaml
    - config.yaml
    - $GOOSE_ROOT/configs/$NREL_CLUSTER/packages.yaml
