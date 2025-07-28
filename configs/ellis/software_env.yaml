@@ -1,11 +1,5 @@
 spack:
    view: false
-   #view:
-   #  default:
-   #    root: $env/view
-   #    projections:
-   #      all: '{compiler.name}/{compiler.version}/{name}/{version}/{hash:8}'
-   #    link_type: symlink
    modules:
      default:
        tcl:
@@ -25,7 +19,7 @@ spack:
    - $GOOSE_ROOT/configs/base/bootstrap.yaml
    - $GOOSE_ROOT/configs/base/config.yaml
    definitions:
-   - compilers: ["%gcc@=12.3.0"]
+   - compilers: ["%gcc@=12.5.0"]
    - core:
      - aspell
      - bc
@@ -38,7 +32,7 @@ spack:
      - flex
      - ffmpeg
      - fftw
-     - emacs ^gcc@12.3.0
+     - emacs ^gcc@12.5.0
      - git
      - gdb
      - gnuplot

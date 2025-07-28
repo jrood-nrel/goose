@@ -3,16 +3,8 @@ spack:
    modules:
      default:
        tcl:
-         intel-parallel-studio:
-           environment:
-             set:
-               INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
          include: ['cuda', 'gcc', 'go', 'llvm', 'intel-oneapi-compilers', 'binutils']
          exclude: ['%gcc']
-         #defaults:
-         #  - gcc@=12.3.0
-         #  - cuda@=11.7.1
-         #  - llvm@=17.0.6
    include:
    - packages.yaml
    - compilers.yaml
@@ -29,7 +21,11 @@ spack:
    - $GOOSE_ROOT/configs/base/config.yaml
    specs:
    - binutils+gold
-   - cuda@=12.4.0
+   - cuda@=12.9.0
+   - cuda@=12.8.1
+   - cuda@=12.6.3
+   - cuda@=12.5.1
+   - cuda@=12.4.1
    - cuda@=12.3.2
    - cuda@=12.2.2
    - cuda@=12.1.1
@@ -38,17 +34,19 @@ spack:
    - cuda@=11.6.2
    - cuda@=11.5.2
    - cuda@=11.4.4
-   - gcc@=14.1.0
-   - gcc@=13.3.0
-   - gcc@=12.3.0
-   - gcc@=11.4.0
+   - gcc@=15.1.0
+   - gcc@=14.3.0
+   - gcc@=13.4.0
+   - gcc@=12.5.0
+   - gcc@=11.5.0
    - gcc@=10.5.0
    - gcc@=9.5.0
    - gcc@=8.5.0
-   - go@=1.22.1
-   - llvm@=18.1.6
+   - go@=1.24.3
+   - llvm@=20.1.6
+   - llvm@=19.1.7
+   - llvm@=18.1.8
    - llvm@=17.0.6
    - llvm@=16.0.6
    - llvm@=15.0.7
    - llvm@=14.0.6
-   - llvm@=13.0.1

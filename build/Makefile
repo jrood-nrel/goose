@@ -1,14 +1,9 @@
-DATE = 2024-06-10
+DATE = 2025-07-28
 INSTALLDIR = /no/where
 COMPILERS = llvm gcc
 
-ifeq ($(NREL_CLUSTER),eagle)
-  #INSTALLDIR = /nopt/nrel/ecom/hpacf/$(DATE)
-  INSTALLDIR = /scratch/jrood/nrel/ecom/hpacf/$(DATE)
-endif
-
 ifeq ($(NREL_CLUSTER),ellis)
-  INSTALLDIR = /data/ssd1/software/$(DATE)
+  INSTALLDIR = /data/ssd1/home/jrood/goose/install/$(DATE)
 endif
 
 export SPACK_USER_CONFIG_PATH=$(CURDIR)/.spack
