@@ -1,0 +1,19 @@
+modules:
+  prefix_inspections:
+    ./lib64: 
+      - LD_LIBRARY_PATH
+    ./lib: 
+      - LD_LIBRARY_PATH
+  default:
+    enable: [tcl]
+    tcl:
+      hash_length: 0
+      projections:
+        all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
+      all:
+        autoload: none
+        conflict:
+          - '{name}'
+        environment:
+          set:
+            '{name}_ROOT_DIR': '{prefix}'
