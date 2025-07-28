@@ -7,11 +7,11 @@ spack:
          exclude: ['%gcc']
    packages:
      c:
-       - require: "gcc@=12.5.0"
+       require: "gcc@=12.5.0"
      cxx:
-       - require: "gcc@=12.5.0"
+       require: "gcc@=12.5.0"
      fortran:
-       - require: "gcc@=12.5.0"
+       require: "gcc@=12.5.0"
    include:
     - packages.yaml
     - modules.yaml
@@ -30,4 +30,4 @@ spack:
     - cuda@=12.5.1
     - gcc@=12.5.0
     - go@=1.24.3
-    - llvm@=20.1.6
+    - llvm@=20.1.8
