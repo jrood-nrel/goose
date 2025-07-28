@@ -12,6 +12,7 @@ packages:
   vim:
     require: "+python+cscope features=huge"
   gcc:
-    prefer: "~bootstrap+strip languages=c,c++,fortran,jit"
+    prefer:
+     - "~bootstrap+strip languages=c,c++,fortran,jit"
   all:
     variants: build_type=Release
