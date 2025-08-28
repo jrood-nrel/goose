@@ -1,0 +1,33 @@
+spack:
+   view: false
+   modules:
+     default:
+       tcl:
+         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-oneapi-compilers', 'binutils']
+         exclude: ['%gcc']
+   packages:
+     c:
+       require: "gcc@=12.5.0"
+     cxx:
+       require: "gcc@=12.5.0"
+     fortran:
+       require: "gcc@=12.5.0"
+   include:
+    - packages.yaml
+    - modules.yaml
+    - config.yaml
+    - $GOOSE_ROOT/configs/$NREL_CLUSTER/packages.yaml
+    - $GOOSE_ROOT/configs/$NREL_CLUSTER/modules.yaml
+    - $GOOSE_ROOT/configs/$NREL_CLUSTER/config.yaml
+    - $GOOSE_ROOT/configs/base/packages.yaml
+    - $GOOSE_ROOT/configs/base/concretizer.yaml
+    - $GOOSE_ROOT/configs/base/repos.yaml
+    - $GOOSE_ROOT/configs/base/modules.yaml
+    - $GOOSE_ROOT/configs/base/bootstrap.yaml
+    - $GOOSE_ROOT/configs/base/config.yaml
+   specs:
+    - binutils+gold
+    - cuda@=12.5.1
+    - gcc@=12.5.0
+    - go@=1.24.3
+    - llvm@=20.1.8
