@@ -6,11 +6,11 @@ spack:
          exclude: ['gcc', 'cuda', 'llvm', 'binutils']
    packages:
      c:
-       - require: "gcc@=12.5.0"
+       require: "gcc@=12.5.0"
      cxx:
-       - require: "gcc@=12.5.0"
+       require: "gcc@=12.5.0"
      fortran:
-       - require: "gcc@=12.5.0"
+       require: "gcc@=12.5.0"
    include:
     - packages.yaml
     - modules.yaml

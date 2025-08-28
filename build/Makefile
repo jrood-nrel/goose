@@ -1,4 +1,4 @@
-DATE = 2025-07-28
+DATE = 2025-08-28
 INSTALLDIR = /no/where
 COMPILERS = llvm gcc
 
@@ -84,16 +84,10 @@ software/config.yaml:
 software/packages.yaml: compilers/generated/modules
 	# selectively pull compilers to avoid system gcc
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
-	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin/intel64
-	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' intel-oneapi-compilers)/compiler/latest/linux/bin
 	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin; \
 	export GCC_BINPATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' gcc)/bin; \
 	export GCC_LIBPATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' gcc)/lib64; \
 	sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" software/packages.yaml; \
-	sed -i -e '/oneapi@=/,/- compiler:/!b' -e "s|        PATH:.*|        PATH: $${GCC_BINPATH}:$${BINUTILS_PATH}|g" software/packages.yaml; \
-	sed -i -e '/dpcpp@=/,/- compiler:/!b' -e "s|        PATH:.*|        PATH: $${GCC_BINPATH}:$${BINUTILS_PATH}|g" software/packages.yaml; \
-	sed -i -e '/oneapi@=/,/- compiler:/!b' -e "s|extra_rpaths: \[\]|extra_rpaths:\n       - $${GCC_LIBPATH}|g" software/packages.yaml; \
-	sed -i -e '/dpcpp@=/,/- compiler:/!b' -e "s|extra_rpaths: \[\]|extra_rpaths:\n       - $${GCC_LIBPATH}|g" software/packages.yaml
 	touch software/packages.yaml
 
 software/spack.lock: software/spack.yaml software/config.yaml software/packages.yaml
