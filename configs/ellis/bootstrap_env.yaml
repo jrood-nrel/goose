@@ -1,11 +1,15 @@
 spack:
    view: false
+   packages:
+     all:
+       prefer:
+         - "target=zen"
    modules:
      default:
        tcl:
          hide_implicits: true
-         include: ['gcc', 'screen', 'binutils']
-         exclude: ['%gcc']
+         include: ["gcc", "screen", "binutils"]
+         exclude: ["%gcc", "autoconf", "glibc"]
    include:
     - packages.yaml
     - modules.yaml
