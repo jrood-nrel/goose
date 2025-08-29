@@ -3,8 +3,7 @@ spack:
    modules:
      default:
        tcl:
-         include: ['cuda', 'gcc', 'go', 'llvm', 'intel-oneapi-compilers', 'binutils']
-         exclude: ['%gcc']
+         hide_implicits: true
    packages:
      c:
        require: "gcc@=12.5.0"
