@@ -25,5 +25,75 @@ spack:
     - $GOOSE_ROOT/configs/base/bootstrap.yaml
     - $GOOSE_ROOT/configs/base/config.yaml
    specs:
+    - aspell
+    - bc
+    - bison
+    - bzip2
+    - ccls
     - cmake
+    - cppcheck
+    - curl
+    - flex
+    - ffmpeg
+    - fftw
+    - emacs ^gcc@12.5.0
+    - git
+    - gdb
+    - gnuplot
+    - gnutls
+    - htop
+    - hunspell
+    - imagemagick
+    - libxml2
+    - likwid
+    - ninja
+    - npm
+    - mercurial
+    - makedepend
+    - patch
+    - pkg-config
+    - python
+    - rsync
+    - screen
+    - stow
+    - strace
+    - texinfo
+    - texlive
+    - tmux
+    - unzip
+    - vim
+    - wget
+    - zsh
+    - global
+    - xterm
+    - py-numpy
+    - py-matplotlib
+    - py-pandas
+    - py-nose
+    - py-autopep8
+    - py-flake8
+    - py-jedi
+    - py-pip
+    - py-pyyaml
+    - py-seaborn
+    - py-sphinx
+    - py-scipy
+    - py-yapf
+    - py-yt
+    - masa~python
+    - valgrind~mpi
+    - ascent
+    - nccmp
+    - netcdf-fortran
+    - amrvis dims=3
+    - amrvis+profiling dims=2
+    - mpich
+    - hdf5
+    - parallel-netcdf
+    - paraview
+    - visit
+    - netcdf-c
+    - boost
+    - hypre
+    - h5z-zfp
     - yaml-cpp
