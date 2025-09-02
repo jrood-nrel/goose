@@ -6,6 +6,7 @@ modules:
       - LD_LIBRARY_PATH
   default:
     enable: [tcl]
+    arch_folder: false
     tcl:
       hash_length: 0
       projections:
