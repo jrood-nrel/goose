@@ -20,7 +20,6 @@ clean:
 	rm -rf bootstrap/
 	rm -rf compilers/
 	rm -rf software/
-	rm -rf .spack/
 	rm -rf .cache/
 
 # Bootstrap
