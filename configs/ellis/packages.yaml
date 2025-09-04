@@ -1,12 +1,12 @@
 packages:
   paraview:
-    require: "+osmesa+hdf5+visitbridge+mpi"
+    require: "~fortran+hdf5+visitbridge+mpi"
   py-torch:
     require: "+cuda+cudnn+magma+nccl"
   py-tensorflow:
     require: "+cuda+nccl"
   visit:
-    require: "~gui+osmesa"
+    require: "~gui"
   mpi:
     require: "mpich"
   all:

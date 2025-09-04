@@ -36,7 +36,7 @@ spack:
     - flex
     - ffmpeg
     - fftw
-    - emacs ^gcc@12.5.0
+      #- emacs
     - git
     - gdb
     - gnuplot
