@@ -36,7 +36,7 @@ spack:
     - flex
     - ffmpeg
     - fftw
-      #- emacs
+    - emacs
     - git
     - gdb
     - gnuplot
@@ -75,6 +75,8 @@ spack:
     - py-jedi
     - py-pip
     - py-pyyaml
+    - py-torch
+    - py-tensorflow
     - py-seaborn
     - py-sphinx
     - py-scipy
