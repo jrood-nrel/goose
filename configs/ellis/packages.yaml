@@ -8,7 +8,7 @@ packages:
   visit:
     require: "~gui"
   emacs:
-    require: "+json+native+tls+treesitter"
+    require: "+json~native+tls+treesitter"
   mpi:
     require: "mpich"
   all:
