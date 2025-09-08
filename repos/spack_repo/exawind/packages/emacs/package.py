@@ -87,7 +87,7 @@ class Emacs(AutotoolsPackage, GNUMirrorPackage):
     # Optional dependencies
     depends_on("gnutls", when="+tls")
     depends_on("tree-sitter", when="+treesitter")
-    #depends_on("gcc@11: +strip languages=jit", when="+native")
+    depends_on("gcc@11: +strip languages=jit", when="+native")
     depends_on("jansson@2.7:", when="+json")
 
     # GUI dependencies
