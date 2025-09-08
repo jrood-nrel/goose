@@ -1,4 +1,5 @@
 config:
+  db_lock_timeout: 480
   source_cache: ~/.spack_downloads
   misc_cache: $spack/../build/.cache
   build_stage:
