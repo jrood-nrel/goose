@@ -56,7 +56,7 @@ compilers/config.yaml:
 compilers/packages.yaml: bootstrap/generated/modules
 	SPACK_USER_CONFIG_PATH=compilers spack compiler find --scope=user $$(spack -e bootstrap find --format '{prefix}' gcc)
 	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin; \
-	sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" compilers/packages.yaml
+	sed -i -e "s|extra_attributes:|extra_attributes:\n     environment:\n       prepend_path:\n        PATH: $${BINUTILS_PATH}|g" compilers/packages.yaml; \
 	touch compilers/packages.yaml
 
 compilers/spack.lock: compilers/spack.yaml compilers/config.yaml compilers/packages.yaml
@@ -84,9 +84,7 @@ software/packages.yaml: compilers/generated/modules
 	# selectively pull compilers to avoid system gcc
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
 	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin; \
-	export GCC_BINPATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' gcc)/bin; \
-	export GCC_LIBPATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap find --format '{prefix}' gcc)/lib64; \
-	sed -i -e "s|environment: {}|environment:\n      prepend_path:\n        PATH: $${BINUTILS_PATH}|g" software/packages.yaml; \
+	sed -i -e "s|extra_attributes:|extra_attributes:\n     environment:\n       prepend_path:\n        PATH: $${BINUTILS_PATH}|g" software/packages.yaml; \
 	touch software/packages.yaml
 
 software/spack.lock: software/spack.yaml software/config.yaml software/packages.yaml

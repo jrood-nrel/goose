@@ -4,4 +4,4 @@ from spack_repo.builtin.packages.py_tensorflow.package import PyTensorflow as bP
 
 
 class PyTensorflow(bPyTensorflow):
-    depends_on("binutils")
+    depends_on("binutils", type="link")
