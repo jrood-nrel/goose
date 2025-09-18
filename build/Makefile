@@ -84,7 +84,7 @@ software/packages.yaml: compilers/generated/modules
 	# selectively pull compilers to avoid system gcc
 	SPACK_USER_CONFIG_PATH=software spack compiler find --scope=user $$(spack -e compilers find --format '{prefix}' $(COMPILERS))
 	export BINUTILS_PATH=$$(SPACK_USER_CONFIG_PATH=bootstrap spack -e bootstrap location -i --first binutils)/bin; \
-	sed -i -e "s|extra_attributes:|extra_attributes:\n        environment:\n          prepend_path:\n            PATH: $${BINUTILS_PATH}|g" compilers/packages.yaml; \
+	sed -i -e "s|extra_attributes:|extra_attributes:\n        environment:\n          prepend_path:\n            PATH: $${BINUTILS_PATH}|g" software/packages.yaml; \
 	touch software/packages.yaml
 
 software/spack.lock: software/spack.yaml software/config.yaml software/packages.yaml
