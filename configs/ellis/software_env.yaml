@@ -25,7 +25,7 @@ spack:
     - $GOOSE_ROOT/configs/base/bootstrap.yaml
     - $GOOSE_ROOT/configs/base/config.yaml
    specs:
-    - aspell
+     #- aspell
     - bc
     - bison
     - bzip2

@@ -9,6 +9,8 @@ packages:
     require: "~gui"
   emacs:
     require: "+json+native+tls+treesitter"
+  conduit:
+    require: "~hdf5_compat"
   mpi:
     require: "mpich"
   all:
