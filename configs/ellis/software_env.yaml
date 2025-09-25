@@ -76,7 +76,7 @@ spack:
     - py-pip
     - py-pyyaml
     - py-torch
-    - py-tensorflow
+    #- py-tensorflow
     - py-seaborn
     - py-sphinx
     - py-scipy
