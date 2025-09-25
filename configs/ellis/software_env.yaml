@@ -87,8 +87,8 @@ spack:
     - ascent
     - nccmp
     - netcdf-fortran
-    - amrvis dims=3
-    - amrvis+profiling dims=2
+    #- amrvis dims=3
+    #- amrvis+profiling dims=2
     - mpich
     - hdf5
     - parallel-netcdf
